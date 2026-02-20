@@ -5,23 +5,23 @@
 See: .planning/PROJECT.md (updated 2026-02-20)
 
 **Core value:** Users can upload a PDF invoice and get back structured, queryable data extracted automatically by AI
-**Current focus:** Phase 1: Foundation & Docker
+**Current focus:** Phase 2: Authentication & API Infrastructure
 
 ## Current Position
 
-Phase: 1 of 6 (Foundation & Docker) -- COMPLETE
-Plan: 2 of 2 in current phase -- COMPLETE
-Status: Phase 1 Complete
-Last activity: 2026-02-20 -- Completed 01-02-PLAN.md
+Phase: 2 of 6 (Authentication & API Infrastructure)
+Plan: 1 of 2 in current phase -- COMPLETE
+Status: Executing Phase 2
+Last activity: 2026-02-20 -- Completed 02-01-PLAN.md
 
-Progress: [##░░░░░░░░] 17%
+Progress: [###░░░░░░░] 25%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 2
-- Average duration: 8min
-- Total execution time: 0.27 hours
+- Total plans completed: 3
+- Average duration: 7min
+- Total execution time: 0.32 hours
 
 **By Phase:**
 
@@ -29,6 +29,7 @@ Progress: [##░░░░░░░░] 17%
 |-------|-------|-------|----------|
 | 01 Plan 01 | 2 tasks | 14min | 7min |
 | 01 Plan 02 | 2 tasks | 2min | 1min |
+| 02 Plan 01 | 2 tasks | 3min | 1.5min |
 
 **Recent Trend:**
 - Last 5 plans: -
@@ -48,6 +49,9 @@ Recent decisions affecting current work:
 - USER www-data in Dockerfile, override in docker-compose for dev
 - API versioning via apiPrefix in withRouting() for /api/v1/ prefix
 - Decimal(12,2) for monetary fields, decimal(10,3) for quantity
+- Revoke only current token on logout (multi-device support)
+- API controllers in App\Http\Controllers\Api namespace
+- All user responses through UserResource (no sensitive fields)
 
 ### Pending Todos
 
@@ -60,5 +64,5 @@ None yet.
 ## Session Continuity
 
 Last session: 2026-02-20
-Stopped at: Completed 01-02-PLAN.md (Database migrations, models, API v1 routing) -- Phase 1 complete
+Stopped at: Completed 02-01-PLAN.md (Sanctum auth endpoints, user seeder, UserResource)
 Resume file: None
