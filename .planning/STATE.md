@@ -5,23 +5,23 @@
 See: .planning/PROJECT.md (updated 2026-02-20)
 
 **Core value:** Users can upload a PDF invoice and get back structured, queryable data extracted automatically by AI
-**Current focus:** Phase 2: Authentication & API Infrastructure
+**Current focus:** Phase 3: Invoice Upload & Queue Processing
 
 ## Current Position
 
-Phase: 2 of 6 (Authentication & API Infrastructure) -- COMPLETE
-Plan: 2 of 2 in current phase -- COMPLETE
-Status: Phase 2 Complete
-Last activity: 2026-02-20 -- Completed 02-02-PLAN.md
+Phase: 3 of 6 (Invoice Upload & Queue Processing)
+Plan: 1 of 2 in current phase -- COMPLETE
+Status: Executing Phase 3
+Last activity: 2026-02-20 -- Completed 03-01-PLAN.md
 
-Progress: [####░░░░░░] 33%
+Progress: [#####░░░░░] 42%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 4
-- Average duration: 6min
-- Total execution time: 0.37 hours
+- Total plans completed: 5
+- Average duration: 5min
+- Total execution time: 0.45 hours
 
 **By Phase:**
 
@@ -31,6 +31,7 @@ Progress: [####░░░░░░] 33%
 | 01 Plan 02 | 2 tasks | 2min | 1min |
 | 02 Plan 01 | 2 tasks | 3min | 1.5min |
 | 02 Plan 02 | 1 task | 3min | 3min |
+| 03 Plan 01 | 2 tasks | 5min | 2.5min |
 
 **Recent Trend:**
 - Last 5 plans: -
@@ -55,6 +56,8 @@ Recent decisions affecting current work:
 - All user responses through UserResource (no sensitive fields)
 - redirectGuestsTo returns null for API routes to prevent redirect-to-login 500 errors
 - Rate limiters key by user ID when authenticated, falling back to IP
+- Storage::disk('local')->putFile for private PDF storage with auto-generated filenames
+- Form Request authorize() returns true when Sanctum middleware handles auth upstream
 
 ### Pending Todos
 
@@ -67,5 +70,5 @@ None yet.
 ## Session Continuity
 
 Last session: 2026-02-20
-Stopped at: Completed 02-02-PLAN.md (JSON error handling, rate limiters) -- Phase 2 complete
+Stopped at: Completed 03-01-PLAN.md (PDF upload endpoint with validation and storage)
 Resume file: None
