@@ -5,23 +5,23 @@
 See: .planning/PROJECT.md (updated 2026-02-20)
 
 **Core value:** Users can upload a PDF invoice and get back structured, queryable data extracted automatically by AI
-**Current focus:** Phase 3: Invoice Upload & Queue Processing
+**Current focus:** Phase 4: PDF Parsing & AI Integration
 
 ## Current Position
 
-Phase: 3 of 6 (Invoice Upload & Queue Processing)
-Plan: 1 of 2 in current phase -- COMPLETE
-Status: Executing Phase 3
-Last activity: 2026-02-20 -- Completed 03-01-PLAN.md
+Phase: 4 of 6 (PDF Parsing & AI Integration)
+Plan: 1 of 3 in current phase -- COMPLETE
+Status: Executing Phase 4
+Last activity: 2026-02-20 -- Completed 04-01-PLAN.md
 
-Progress: [#####░░░░░] 42%
+Progress: [######░░░░] 55%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 5
+- Total plans completed: 6
 - Average duration: 5min
-- Total execution time: 0.45 hours
+- Total execution time: 0.48 hours
 
 **By Phase:**
 
@@ -32,6 +32,7 @@ Progress: [#####░░░░░] 42%
 | 02 Plan 01 | 2 tasks | 3min | 1.5min |
 | 02 Plan 02 | 1 task | 3min | 3min |
 | 03 Plan 01 | 2 tasks | 5min | 2.5min |
+| 04 Plan 01 | 2 tasks | 2min | 1min |
 
 **Recent Trend:**
 - Last 5 plans: -
@@ -58,6 +59,8 @@ Recent decisions affecting current work:
 - Rate limiters key by user ID when authenticated, falling back to IP
 - Storage::disk('local')->putFile for private PDF storage with auto-generated filenames
 - Form Request authorize() returns true when Sanctum middleware handles auth upstream
+- Page-by-page PDF conversion loop for named output control over saveAllPages()
+- Manifest JSON file in temp dir for transient inter-job data (not database column)
 
 ### Pending Todos
 
@@ -70,5 +73,5 @@ None yet.
 ## Session Continuity
 
 Last session: 2026-02-20
-Stopped at: Completed 03-01-PLAN.md (PDF upload endpoint with validation and storage)
+Stopped at: Completed 04-01-PLAN.md (PDF-to-image conversion with spatie/pdf-to-image)
 Resume file: None
