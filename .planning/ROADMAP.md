@@ -78,12 +78,12 @@ Plans:
   3. Line items are extracted with description, quantity, unit price, amount, and tax, and stored in a separate table
   4. Each extracted field has a confidence score (0-100%) and line item amounts are validated against invoice totals
   5. Malformed or incomplete OpenAI responses are caught by validation before database storage
-**Plans**: TBD
+**Plans**: 3 plans
 
 Plans:
-- [ ] 04-01: TBD
-- [ ] 04-02: TBD
-- [ ] 04-03: TBD
+- [ ] 04-01-PLAN.md — Install spatie/pdf-to-image + openai-php/laravel, PdfConverter service, ConvertPdfToImages job
+- [ ] 04-02-PLAN.md — InvoiceSchema, InvoiceParser service, ParseInvoiceWithAI job with OpenAI Vision
+- [ ] 04-03-PLAN.md — InvoiceValidator, SaveParsedData job, CleanupTempFiles job, confidence scores migration
 
 ### Phase 5: Invoice CRUD
 **Goal**: Users can browse, inspect, download, and delete their parsed invoices through complete REST endpoints with pagination, filtering, and ownership enforcement
@@ -95,11 +95,11 @@ Plans:
   3. User can download the original uploaded PDF file
   4. User can delete an invoice, which removes both the database record and stored PDF
   5. A user cannot access, view, or delete invoices belonging to another user
-**Plans**: TBD
+**Plans**: 2 plans
 
 Plans:
-- [ ] 05-01: TBD
-- [ ] 05-02: TBD
+- [ ] 05-01-PLAN.md — InvoiceItemResource, enhanced InvoiceResource, index endpoint with pagination/filter/ownership
+- [ ] 05-02-PLAN.md — Download and delete endpoints with ownership enforcement
 
 ### Phase 6: Testing, Documentation & Polish
 **Goal**: The project demonstrates professional engineering quality with comprehensive tests, auto-generated API documentation, and a polished README suitable for portfolio presentation
@@ -110,12 +110,12 @@ Plans:
   2. All tests run without real OpenAI API calls (mocked) and test coverage reaches 80%+
   3. OpenAPI 3.x specification is auto-generated and accessible at a documentation endpoint
   4. README includes project badges, architecture overview, curl examples, setup instructions, and environment variable documentation
-**Plans**: TBD
+**Plans**: 3 plans
 
 Plans:
-- [ ] 06-01: TBD
-- [ ] 06-02: TBD
-- [ ] 06-03: TBD
+- [ ] 06-01-PLAN.md — Feature tests for all API endpoints with model factories
+- [ ] 06-02-PLAN.md — Unit tests for service layer (InvoiceValidator, InvoiceParser, PdfConverter)
+- [ ] 06-03-PLAN.md — OpenAPI docs via dedoc/scramble and professional README
 
 ## Progress
 
