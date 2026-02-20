@@ -20,5 +20,6 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::post('/logout', [AuthController::class, 'logout']);
     Route::get('/user', fn(Request $request) => new UserResource($request->user()));
     Route::post('/invoices', [InvoiceController::class, 'upload'])->middleware('throttle:parse');
+    Route::get('/invoices', [InvoiceController::class, 'index']);
     Route::get('/invoices/{invoice}', [InvoiceController::class, 'show']);
 });

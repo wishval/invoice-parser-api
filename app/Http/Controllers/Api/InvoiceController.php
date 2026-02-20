@@ -12,6 +12,8 @@ use App\Jobs\ProcessInvoice;
 use App\Jobs\SaveParsedData;
 use App\Models\Invoice;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Request;
+use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 use Illuminate\Support\Facades\Bus;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
@@ -19,6 +21,20 @@ use Throwable;
 
 class InvoiceController extends Controller
 {
+    public function index(Request $request): AnonymousResourceCollection
+    {
+        $query = $request->user()->invoices()->with('items')->latest();
+
+        $status = $request->query('status');
+        if ($status && in_array($status, ['pending', 'processing', 'completed', 'failed'])) {
+            $query->where('status', $status);
+        }
+
+        $invoices = $query->paginate($request->query('per_page', 15));
+
+        return InvoiceResource::collection($invoices);
+    }
+
     public function upload(StoreInvoiceRequest $request): JsonResponse
     {
         $path = Storage::disk('local')->putFile('invoices', $request->file('pdf'));
@@ -54,6 +70,8 @@ class InvoiceController extends Controller
         if ($invoice->user_id !== auth()->id()) {
             abort(403, 'This invoice does not belong to you.');
         }
+
+        $invoice->load('items');
 
         return (new InvoiceResource($invoice))->response();
     }
