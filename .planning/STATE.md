@@ -10,18 +10,18 @@ See: .planning/PROJECT.md (updated 2026-02-20)
 ## Current Position
 
 Phase: 6 of 6 (Testing, Documentation & Polish)
-Plan: 1 of 3 in current phase -- COMPLETE
+Plan: 2 of 3 in current phase -- COMPLETE
 Status: Executing Phase 6
-Last activity: 2026-02-20 -- Completed 06-01-PLAN.md
+Last activity: 2026-02-20 -- Completed 06-02-PLAN.md
 
-Progress: [#########░] 93%
+Progress: [##########] 96%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 10
+- Total plans completed: 11
 - Average duration: 4min
-- Total execution time: 0.69 hours
+- Total execution time: 0.74 hours
 
 **By Phase:**
 
@@ -38,6 +38,7 @@ Progress: [#########░] 93%
 | 05 Plan 01 | 2 tasks | 3min | 1.5min |
 | 05 Plan 02 | 2 tasks | 3min | 1.5min |
 | 06 Plan 01 | 2 tasks | 4min | 2min |
+| 06 Plan 02 | 2 tasks | 3min | 1.5min |
 
 **Recent Trend:**
 - Last 5 plans: -
@@ -76,6 +77,8 @@ Recent decisions affecting current work:
 - [Phase 06]: Verify logout by asserting token deletion from DB (not second HTTP request) to avoid Sanctum guard cache issues
 - [Phase 06]: Bus::fake() in upload tests to prevent real job chain dispatch
 - [Phase 06]: SQLite in-memory for fast isolated test execution
+- [Phase 06]: OpenAI::fake() for zero-cost API mocking in unit tests
+- [Phase 06]: PdfConverter tests limited to error paths (no Ghostscript in test env)
 
 ### Pending Todos
 
@@ -88,5 +91,5 @@ None yet.
 ## Session Continuity
 
 Last session: 2026-02-20
-Stopped at: Completed 06-01-PLAN.md (feature tests for all API endpoints)
+Stopped at: Completed 06-02-PLAN.md (unit tests for service layer)
 Resume file: None
