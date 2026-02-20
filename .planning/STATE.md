@@ -5,16 +5,16 @@
 See: .planning/PROJECT.md (updated 2026-02-20)
 
 **Core value:** Users can upload a PDF invoice and get back structured, queryable data extracted automatically by AI
-**Current focus:** Phase 4: PDF Parsing & AI Integration
+**Current focus:** Phase 5: Invoice CRUD
 
 ## Current Position
 
-Phase: 4 of 6 (PDF Parsing & AI Integration)
-Plan: 3 of 3 in current phase -- COMPLETE
-Status: Phase 4 Complete
-Last activity: 2026-02-20 -- Completed 04-03-PLAN.md
+Phase: 5 of 6 (Invoice CRUD)
+Plan: 1 of 2 in current phase -- COMPLETE
+Status: Executing Phase 5
+Last activity: 2026-02-20 -- Completed 05-01-PLAN.md
 
-Progress: [########░░] 73%
+Progress: [########░░] 82%
 
 ## Performance Metrics
 
@@ -35,6 +35,7 @@ Progress: [########░░] 73%
 | 04 Plan 01 | 2 tasks | 2min | 1min |
 | 04 Plan 02 | 2 tasks | 3min | 1.5min |
 | 04 Plan 03 | 2 tasks | 2min | 1min |
+| 05 Plan 01 | 2 tasks | 3min | 1.5min |
 
 **Recent Trend:**
 - Last 5 plans: -
@@ -67,6 +68,8 @@ Recent decisions affecting current work:
 - [Phase 04]: Parsed data written to JSON file for independent job retryability
 - [Phase 04]: Validate structure and totals before any DB write to reject malformed AI responses early
 - [Phase 04]: SaveParsedData sets status to completed inside transaction (not CleanupTempFiles)
+- [Phase 05]: whenNotNull for all nullable extracted fields to keep pending invoice JSON clean
+- [Phase 05]: User->invoices() relationship added to User model (was missing)
 
 ### Pending Todos
 
@@ -79,5 +82,5 @@ None yet.
 ## Session Continuity
 
 Last session: 2026-02-20
-Stopped at: Completed 04-03-PLAN.md (validation, persistence, and temp file cleanup)
+Stopped at: Completed 05-01-PLAN.md (invoice list with pagination, filtering, and line items)
 Resume file: None
