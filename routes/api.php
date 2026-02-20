@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\Api\AuthController;
+use App\Http\Resources\UserResource;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/health', function () {
@@ -8,4 +11,11 @@ Route::get('/health', function () {
         'version' => 'v1',
         'timestamp' => now()->toIso8601String(),
     ]);
+});
+
+Route::post('/login', [AuthController::class, 'login']);
+
+Route::middleware('auth:sanctum')->group(function () {
+    Route::post('/logout', [AuthController::class, 'logout']);
+    Route::get('/user', fn(Request $request) => new UserResource($request->user()));
 });
