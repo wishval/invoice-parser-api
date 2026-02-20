@@ -29,6 +29,7 @@ class Invoice extends Model
         'subtotal',
         'tax_amount',
         'total',
+        'confidence_scores',
         'error_message',
     ];
 
@@ -38,6 +39,7 @@ class Invoice extends Model
         'subtotal' => 'decimal:2',
         'tax_amount' => 'decimal:2',
         'total' => 'decimal:2',
+        'confidence_scores' => 'array',
     ];
 
     public function user(): BelongsTo
