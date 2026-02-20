@@ -5,23 +5,23 @@
 See: .planning/PROJECT.md (updated 2026-02-20)
 
 **Core value:** Users can upload a PDF invoice and get back structured, queryable data extracted automatically by AI
-**Current focus:** Phase 5: Invoice CRUD
+**Current focus:** Phase 6: Testing, Documentation & Polish
 
 ## Current Position
 
-Phase: 5 of 6 (Invoice CRUD) -- COMPLETE
-Plan: 2 of 2 in current phase -- COMPLETE
-Status: Phase 5 Complete
-Last activity: 2026-02-20 -- Completed 05-02-PLAN.md
+Phase: 6 of 6 (Testing, Documentation & Polish)
+Plan: 1 of 3 in current phase -- COMPLETE
+Status: Executing Phase 6
+Last activity: 2026-02-20 -- Completed 06-01-PLAN.md
 
-Progress: [#########░] 91%
+Progress: [#########░] 93%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 9
+- Total plans completed: 10
 - Average duration: 4min
-- Total execution time: 0.62 hours
+- Total execution time: 0.69 hours
 
 **By Phase:**
 
@@ -37,6 +37,7 @@ Progress: [#########░] 91%
 | 04 Plan 03 | 2 tasks | 2min | 1min |
 | 05 Plan 01 | 2 tasks | 3min | 1.5min |
 | 05 Plan 02 | 2 tasks | 3min | 1.5min |
+| 06 Plan 01 | 2 tasks | 4min | 2min |
 
 **Recent Trend:**
 - Last 5 plans: -
@@ -72,6 +73,9 @@ Recent decisions affecting current work:
 - [Phase 05]: whenNotNull for all nullable extracted fields to keep pending invoice JSON clean
 - [Phase 05]: User->invoices() relationship added to User model (was missing)
 - [Phase 05]: Delete file before DB record to prevent orphaned storage files
+- [Phase 06]: Verify logout by asserting token deletion from DB (not second HTTP request) to avoid Sanctum guard cache issues
+- [Phase 06]: Bus::fake() in upload tests to prevent real job chain dispatch
+- [Phase 06]: SQLite in-memory for fast isolated test execution
 
 ### Pending Todos
 
@@ -84,5 +88,5 @@ None yet.
 ## Session Continuity
 
 Last session: 2026-02-20
-Stopped at: Completed 05-02-PLAN.md (invoice download and delete with ownership enforcement)
+Stopped at: Completed 06-01-PLAN.md (feature tests for all API endpoints)
 Resume file: None
