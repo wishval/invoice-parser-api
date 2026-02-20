@@ -9,19 +9,19 @@ See: .planning/PROJECT.md (updated 2026-02-20)
 
 ## Current Position
 
-Phase: 5 of 6 (Invoice CRUD)
-Plan: 1 of 2 in current phase -- COMPLETE
-Status: Executing Phase 5
-Last activity: 2026-02-20 -- Completed 05-01-PLAN.md
+Phase: 5 of 6 (Invoice CRUD) -- COMPLETE
+Plan: 2 of 2 in current phase -- COMPLETE
+Status: Phase 5 Complete
+Last activity: 2026-02-20 -- Completed 05-02-PLAN.md
 
-Progress: [########░░] 82%
+Progress: [#########░] 91%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 8
+- Total plans completed: 9
 - Average duration: 4min
-- Total execution time: 0.57 hours
+- Total execution time: 0.62 hours
 
 **By Phase:**
 
@@ -36,6 +36,7 @@ Progress: [########░░] 82%
 | 04 Plan 02 | 2 tasks | 3min | 1.5min |
 | 04 Plan 03 | 2 tasks | 2min | 1min |
 | 05 Plan 01 | 2 tasks | 3min | 1.5min |
+| 05 Plan 02 | 2 tasks | 3min | 1.5min |
 
 **Recent Trend:**
 - Last 5 plans: -
@@ -70,6 +71,7 @@ Recent decisions affecting current work:
 - [Phase 04]: SaveParsedData sets status to completed inside transaction (not CleanupTempFiles)
 - [Phase 05]: whenNotNull for all nullable extracted fields to keep pending invoice JSON clean
 - [Phase 05]: User->invoices() relationship added to User model (was missing)
+- [Phase 05]: Delete file before DB record to prevent orphaned storage files
 
 ### Pending Todos
 
@@ -82,5 +84,5 @@ None yet.
 ## Session Continuity
 
 Last session: 2026-02-20
-Stopped at: Completed 05-01-PLAN.md (invoice list with pagination, filtering, and line items)
+Stopped at: Completed 05-02-PLAN.md (invoice download and delete with ownership enforcement)
 Resume file: None
