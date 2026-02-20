@@ -75,4 +75,30 @@ class InvoiceController extends Controller
 
         return (new InvoiceResource($invoice))->response();
     }
+
+    public function download(Invoice $invoice): \Symfony\Component\HttpFoundation\StreamedResponse
+    {
+        if ($invoice->user_id !== auth()->id()) {
+            abort(403, 'This invoice does not belong to you.');
+        }
+
+        if (!Storage::disk('local')->exists($invoice->stored_path)) {
+            abort(404, 'File not found.');
+        }
+
+        return Storage::disk('local')->download($invoice->stored_path, $invoice->original_filename);
+    }
+
+    public function destroy(Invoice $invoice): JsonResponse
+    {
+        if ($invoice->user_id !== auth()->id()) {
+            abort(403, 'This invoice does not belong to you.');
+        }
+
+        Storage::disk('local')->delete($invoice->stored_path);
+
+        $invoice->delete();
+
+        return response()->json(['message' => 'Invoice deleted.'], 200);
+    }
 }

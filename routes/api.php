@@ -22,4 +22,6 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::post('/invoices', [InvoiceController::class, 'upload'])->middleware('throttle:parse');
     Route::get('/invoices', [InvoiceController::class, 'index']);
     Route::get('/invoices/{invoice}', [InvoiceController::class, 'show']);
+    Route::get('/invoices/{invoice}/download', [InvoiceController::class, 'download']);
+    Route::delete('/invoices/{invoice}', [InvoiceController::class, 'destroy']);
 });
