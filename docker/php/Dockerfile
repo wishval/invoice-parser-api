@@ -40,6 +40,9 @@ RUN for dir in /etc/ImageMagick-6 /etc/ImageMagick-7; do \
 # Copy Composer from official image
 COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
 
+# Configure PHP upload limits (buffer above 10MB Laravel validation)
+RUN echo 'upload_max_filesize = 20M\npost_max_size = 20M' > /usr/local/etc/php/conf.d/uploads.ini
+
 # Ensure Ghostscript is accessible from PHP-FPM worker processes
 RUN echo 'env[PATH] = /usr/local/bin:/usr/bin:/bin' >> /usr/local/etc/php-fpm.d/www.conf
 
