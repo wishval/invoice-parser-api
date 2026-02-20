@@ -1,0 +1,44 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: docker/php/Dockerfile
+    user: root
+    volumes:
+      - .:/var/www/html
+    depends_on:
+      redis:
+        condition: service_healthy
+    env_file:
+      - path: .env
+        required: false
+      - path: .env.example
+        required: false
+    networks:
+      - invoice-parser
+
+  nginx:
+    image: nginx:1.24-alpine
+    ports:
+      - "8000:80"
+    volumes:
+      - .:/var/www/html:ro
+      - ./docker/nginx/default.conf:/etc/nginx/conf.d/default.conf:ro
+    depends_on:
+      - app
+    networks:
+      - invoice-parser
+
+  redis:
+    image: redis:7-alpine
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+    networks:
+      - invoice-parser
+
+networks:
+  invoice-parser:
+    driver: bridge
